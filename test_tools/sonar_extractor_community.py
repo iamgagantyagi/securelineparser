@@ -48,7 +48,7 @@ SECURITY_HOTSPOT = {
             "url": "{base_url}/api/hotspots/show?hotspot={key}",
             "path": "",
             "inputs": ["key"],
-            "filter": [("Path", ["component", "path"]),
+            "filter": [("FilePath", ["component", "path"]),
                        ("Key", ["key"]),
                        ("Description", ["rule", "vulnerabilityDescription"]),
                        ("Remediation", ["rule", "fixRecommendations"])]
@@ -69,7 +69,7 @@ MAINTAINABILITY = {
                    ("Project", ["project"]),
                    ("ToolName", MetaConstants.TOOLNAME),
                    ("Severity", ["severity"]),
-                   ("Path", ["component"]),
+                   ("FilePath", ["component"]),
                    ("Line", ["line"]),
                    ("Title", ["message"]),
                    ("Rule", ["rule"]),
@@ -103,6 +103,7 @@ RELIABILITY = {
                    ("ToolName", MetaConstants.TOOLNAME),
                    ("Type", MetaConstants.RELIABILITY),
                    ("Severity", ["severity"]),
+                   ("FilePath", ["component"]),
                    ("Line", ["line"]),
                    ("Title", ["message"]),
                    ("Rule", ["rule"]),
@@ -161,6 +162,8 @@ ALL_PROFILES = [SECURITY_HOTSPOT, VULNERABILITY_API, MAINTAINABILITY, RELIABILIT
 
 
 def remove_nl(text):
+    if text is None or not isinstance(text, str) or not text.strip():
+        return "For more details, please refer to the scan report."
     return text.replace('\n', ' ')
 
 
@@ -181,7 +184,34 @@ def get_base64_trace(trace):
     return base64.b64encode(json.dumps(trace).encode('utf-8')).decode('utf-8')
 
 
+def severity_mapping(severity):
+        mapping_severity = {
+        "minor": "Low",
+        "info": "Low",
+        "major": "Medium",
+        "blocker": "High",
+        "critical": "High",
+        }
+
+        try:
+            if severity:
+                if severity.strip().lower() not in mapping_severity:
+                    logger.warning(
+                        f"Warning: Unknown severity value detected '{severity}'. Bypass to 'Medium' value"
+                    )
+                    severity = "Medium"
+                else:
+                    severity = mapping_severity[severity.strip().lower()]
+            else:
+                severity = "Medium"
+            return severity
+        except Exception as e:
+            logger.fatal(f"Exception occurred in {__name__}.severity_mapping() : {e}")
+            raise Exception(f"Exception occurred in {__name__}.severity_mapping() ")
+
+
 def default_formatter(data, **kwargs):
+    data["Severity"] = severity_mapping(data["Severity"])
     data["Date"] = str(parser.parse(data["Date"]).date())
     data["Description"] = remove_nl(data["Description"])
     data["Remediation"] = remove_nl(data["Remediation"])
@@ -386,7 +416,7 @@ class SonarProfileExtract:
         return out_data
 
 
-class SonarCubeAPIExtractManager:
+class SonarCubeCommunityAPIExtractManager:
 
     def __init__(self, cmd_args):
         """
@@ -443,7 +473,7 @@ How to run this : See example below
 # sonar_interface = SonarCubeAPIExtractManager(cmdargs)
 # all_extracts = sonar_interface.get_data()
 #
-# headers = ["Component", "Project", "Type", "SecurityCategory", "Severity", "Line", "Title", "RuleKey", "Date", "Status", "Path", "Key", "Description", "Remediation", "Name", "Rule"]
+# headers = ["Component", "Project", "Type", "SecurityCategory", "Severity", "Line", "Title", "RuleKey", "Date", "Status", "FilePath", "Key", "Description", "Remediation", "Name", "Rule"]
 #
 # json.dump(all_extracts, open('out.json', 'w'), indent=4)
 #

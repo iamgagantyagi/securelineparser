@@ -24,6 +24,32 @@ class Trivy_CIS:
         except Exception as e:
             logger.fatal(f"Exception occurred in {__name__}.get_data() : {e}")
             raise Exception(f"Exception occurred in {__name__}.get_data() ")
+        
+    
+    def severity_mapping(self, severity):
+        mapping_severity = {
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High",
+        "critical": "High",
+        }
+
+        try:
+            if severity:
+                if severity.strip().lower() not in mapping_severity:
+                    logger.warning(
+                        f"Warning: Unknown severity value detected '{severity}'. Bypass to 'Medium' value"
+                    )
+                    severity = "Medium"
+                else:
+                    severity = mapping_severity[severity.strip().lower()]
+            else:
+                severity = "Medium"
+            return severity
+        except Exception as e:
+            logger.fatal(f"Exception occurred in {__name__}.severity_mapping() : {e}")
+            raise Exception(f"Exception occurred in {__name__}.severity_mapping() ")
+
 
     def create_dict_data(self, cwe, severity, title, remediation, description):
         """Helper function to create dictionary for row data."""
@@ -31,7 +57,7 @@ class Trivy_CIS:
             "Date": str(date.today()),
             "CWE/CVE": cwe,
             "ToolName": self.test,
-            "Severity": severity,
+            "Severity": self.severity_mapping(severity),
             "Title": title,
             "Remediation": remediation,
             "Description": description,

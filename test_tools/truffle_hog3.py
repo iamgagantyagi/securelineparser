@@ -60,9 +60,9 @@ class TruffleHog3:
 
             severity = "High"
             if reason == "High Entropy":
-                severity = "Info"
+                severity = "Low"
             elif "Oauth" in reason or "AWS" in reason or "Heroku" in reason:
-                severity = "Critical"
+                severity = "High"
             elif reason == "Generic Secret":
                 severity = "Medium"
 

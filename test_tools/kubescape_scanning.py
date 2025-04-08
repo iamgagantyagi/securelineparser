@@ -12,8 +12,34 @@ class KubeScape:
     mapping_severity = {"0": "Info", "1": "Low", "2": "Medium", "3": "High"}
 
     def __init__(self, cmd_args):
-        self.test = "Kubescape Scanning"
+        self.test = cmd_args.test_name
         self.filepath = cmd_args.path
+    
+
+    def severity_mapping(self, severity):
+        mapping_severity = {
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High",
+        "critical": "High",
+        }
+
+        try:
+            if severity:
+                if severity.strip().lower() not in mapping_severity:
+                    logger.warning(
+                        f"Warning: Unknown severity value detected '{severity}'. Bypass to 'Medium' value"
+                    )
+                    severity = "Medium"
+                else:
+                    severity = mapping_severity[severity.strip().lower()]
+            else:
+                severity = "Medium"
+            return severity
+        except Exception as e:
+            logger.fatal(f"Exception occurred in {__name__}.severity_mapping() : {e}")
+            raise Exception(f"Exception occurred in {__name__}.severity_mapping() ")
+
 
     def get_severity(self, url_link):
         severity = ['Critical', 'High', 'Medium', 'Low']
@@ -25,8 +51,8 @@ class KubeScape:
             reg_str = "<p>" + sev + "</p>"
             find_string = re.search(reg_str, html_content)
             if find_string is not None:
-                return sev
-        return "Unknown"
+                return self.severity_mapping(sev)
+        return self.severity_mapping("Unknown")
     
     def remove_special_chars(self, input):
         # Remove problematic characters at the start
@@ -43,7 +69,7 @@ class KubeScape:
             today = date.today()
             logger.debug(f"Today's date is: {today}")
 
-            cwe_id = "Unknown"
+            cwe_id = None
 
             for node in tree.findall("testsuite"):
                 logger.debug(f"print testsuite info : {node}")

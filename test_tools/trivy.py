@@ -31,6 +31,32 @@ class Trivy:
         except Exception as e:
             logger.fatal(f"Exception occurred in {__name__}.get_data() : {e}")
             raise Exception(f"Exception occurred in {__name__}.get_data() ")
+    
+
+    def severity_mapping(self, severity):
+        mapping_severity = {
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High",
+        "critical": "High",
+        }
+
+        try:
+            if severity:
+                if severity.strip().lower() not in mapping_severity:
+                    logger.warning(
+                        f"Warning: Unknown severity value detected '{severity}'. Bypass to 'Medium' value"
+                    )
+                    severity = "Medium"
+                else:
+                    severity = mapping_severity[severity.strip().lower()]
+            else:
+                severity = "Medium"
+            return severity
+        except Exception as e:
+            logger.fatal(f"Exception occurred in {__name__}.severity_mapping() : {e}")
+            raise Exception(f"Exception occurred in {__name__}.severity_mapping() ")
+
 
     def get_dict_data(self, json_data):
         try:
@@ -38,8 +64,8 @@ class Trivy:
             logger.debug(f"Today's date is: {today}")
             cwe_ids = json_data['CweIDs'] if json_data.get('CweIDs') else ''
             cwe = f"{json_data['VulnerabilityID']}, {cwe_ids}" if cwe_ids else json_data['VulnerabilityID']
-            severity = json_data['Severity']
-            title_text = json_data['Title'].split(':')[1].strip() if ':' in json_data['Title'] else json_data['Title']
+            severity = self.severity_mapping(json_data['Severity'])
+            title_text = json_data.get("Title", "").split(":", 1)[1].strip() if ":" in json_data.get("Title", "") else json_data.get("Title", json_data.get("VulnerabilityID"))
             title = f"PkgName: {json_data['PkgName']}\n{title_text}"
 
             description = json_data['Description'] if json_data.get('Description') else 'UNKNOWN'

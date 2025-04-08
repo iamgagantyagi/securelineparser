@@ -1,0 +1,3 @@
+{
+    "quality_gate_query": "SELECT CASE WHEN COUNT(CASE WHEN LOWER(severity) = 'high' AND suppressed = FALSE THEN 1 END) > 0 OR COUNT(CASE WHEN LOWER(severity) = 'medium' AND suppressed = FALSE THEN 1 END) > 0 OR COUNT(CASE WHEN LOWER(severity) = 'low' AND suppressed = FALSE THEN 1 END) > 0 THEN FALSE ELSE TRUE END AS severity_flag FROM {table_name} WHERE build_id = {build_id};"
+}

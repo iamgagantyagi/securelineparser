@@ -17,7 +17,7 @@ class DependencyCheck:
         "moderate": "Medium",
         "medium": "Medium",
         "high": "High",
-        "critical": "Critical",
+        "critical": "High",
     }
 
     def __init__(self, cmd_args):
@@ -322,8 +322,8 @@ class DependencyCheck:
                                             )
                                         )
 
-                    if vulnerability_dict_data != {}:
-                        dict_list.append(vulnerability_dict_data)
+                            if vulnerability_dict_data != {}:
+                                dict_list.append(vulnerability_dict_data)
 
             logger.debug(f"dict list : {dict_list}")
             return dict_list
