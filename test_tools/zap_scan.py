@@ -33,7 +33,7 @@ class ZapScan:
                     items["Date"] = str(parsed_date)
 
                     if item.findtext("cweid") is not None and item.findtext("cweid").isdigit():
-                        items["CWE/CVE"] = int(item.findtext("cweid"))
+                        items["CWE/CVE"] = f"CWE-{int(item.findtext('cweid'))}"
                         description += "desc: " + html2text(item.findtext("desc")) + "\n"
 
                     items["ToolName"] = self.test

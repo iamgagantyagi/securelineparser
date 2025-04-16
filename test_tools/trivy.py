@@ -8,7 +8,7 @@ logger = logging.getLogger()
 class Trivy:
 
     def __init__(self, cmd_args):
-        self.test = "Trivy"
+        self.test = "Trivy Image Scan"
         self.filepath = cmd_args.path
 
     def get_data(self):

@@ -111,7 +111,10 @@ cmd> python3 run_parser.py -t "UBUNTU20-CIS-Audit" -p "D:\DevSecOps\cis_audit_UB
 cmd> python3 run_parser.py -t "CSS scan" -p "D:\DevSecOps\cloud_result.json"
 
 14) Prowler AWS -> Cloud Security Audit
-cmd> python3 run_parser.py -t "Cloud Security Audit_AWS" -p "D:\DevSecOps\aws_cloud_result.json"
+cmd> python3 run_parser.py -t "AWS Cloud Security Suite" -p "D:\DevSecOps\aws_cloud_result.json"
 
 15) Prowler Azure -> Cloud Security Audit
-cmd> python3 run_parser.py -t "Cloud Security Audit_Azure" -p "D:\DevSecOps\azure_cloud_result.json"
+cmd> python3 run_parser.py -t "Azure Cloud Security Suite" -p "D:\DevSecOps\azure_cloud_result.json"
+
+16) OpenVas -> Cloud Security Audit
+cmd> python3 run_parser.py -t "Host Vulnerability Assessment" -p "D:\DevSecOps\openvas_vulnerbility.xml"

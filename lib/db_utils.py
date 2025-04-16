@@ -308,7 +308,7 @@ class FindingsManager:
                         item["UniqueKey"] = self.generate_hash(item, column_names)
                         if item["UniqueKey"] in suppressions_list:
                                 item["Suppressed"] = True
-                        if item["ToolName"] == "Trivy":
+                        if item["ToolName"] in ["Trivy Image Scan", "ZapScan", "Trufflehog3 Scan", "Dependency Check Scan", "OpenVAS", "sonarqube"]:
                                 item["Suppressed"] = self.check_cwe_cve_suppression(item["CWE/CVE"], suppressions_list)
                         self.pg_cursor.execute(insert_query, item)
 

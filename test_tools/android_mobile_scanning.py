@@ -141,7 +141,6 @@ class Android_Mobile_Scanning:
                 severity = result.get("Severity", "info").lower()
                 status = "Fail" if severity in ["high", "critical", "dangerous", "warning"] else "Pass"
                 result["Status"] = status
-                logger.info(f"Inserted result into DB: {result}")
         except Exception as e:
             logger.fatal(f"Exception occurred while storing results in DB: {e}")
             raise Exception("Failed to store results in DB")

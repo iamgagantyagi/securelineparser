@@ -46,8 +46,8 @@ class TruffleHog3:
             parsed_date = date.today() if json_data['date'] is None else parser.parse(json_data["date"]).date()
             logger.debug(f"Date retrieved from json file: {parsed_date}")
 
-            description = f"[cwe-{cwe_id}] : "
-            description += (
+            # description = f"[cwe-{cwe_id}] : "
+            description = (
                 "**Commit:** " + str(json_data.get("commit")).split("\n")[0] + "\n"
             )
             description += (
@@ -80,7 +80,7 @@ class TruffleHog3:
 
             dict_data = dict()
             dict_data["Date"] = str(parsed_date)
-            dict_data["CWE/CVE"] = cwe_id
+            dict_data["CWE/CVE"] = f"CWE-{cwe_id}"
             dict_data["ToolName"] = self.test
             dict_data["Severity"] = severity
             dict_data["Title"] = title

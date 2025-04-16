@@ -66,7 +66,7 @@ class Sonarqube:
                 cwe = cwe_codes[0]
             else:
                 cwe = "unknown"
-
+            
             description = root_cause_description + resources_description  
             remediation = self.text_cleaning(rule_response['rule']['descriptionSections'][0]["content"])
 

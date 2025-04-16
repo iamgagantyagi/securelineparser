@@ -243,10 +243,10 @@ class DependencyCheck:
 
             vulnerability_dict_data = dict()
             vulnerability_dict_data["Date"] = date
-            vulnerability_dict_data["CWE/CVE"] = cwe
+            vulnerability_dict_data["CWE/CVE"] = f"CWE-{cwe} | {name}"
             vulnerability_dict_data["ToolName"] = test
             vulnerability_dict_data["Severity"] = severity
-            vulnerability_dict_data["Title"] = f"{component_name}:{component_version} | {name}"
+            vulnerability_dict_data["Title"] = f"{component_name}:{component_version}"
             vulnerability_dict_data["Remediation"] = remediation
             vulnerability_dict_data["Description"] = description
 

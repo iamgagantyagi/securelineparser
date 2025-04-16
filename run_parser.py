@@ -22,7 +22,7 @@ from test_tools.android_mobile_scanning import Android_Mobile_Scanning
 from test_tools.ios_mobile_scanning import IOS_Mobile_Scanning
 from test_tools.prowler_aws import Prowler_AWS
 from test_tools.prowler_azure import Prowler_Azure
-
+from test_tools.openvas import OpenVas
 
 def run_parser(command_args, pg_connection, input_json):
     try:
@@ -57,7 +57,7 @@ def run_parser(command_args, pg_connection, input_json):
                 parser_scan_output = SonarCubeDeveloperAPIExtractManager(command_args)
         elif "css" in parser_class.lower():
             parser_scan_output = CloudSecuritySuite(command_args)
-        elif "andriod" in parser_class.lower():
+        elif "android" in parser_class.lower():
             parser_scan_output = Android_Mobile_Scanning(command_args)
         elif "ios" in parser_class.lower():
             parser_scan_output = IOS_Mobile_Scanning(command_args)
@@ -65,6 +65,8 @@ def run_parser(command_args, pg_connection, input_json):
             parser_scan_output = Prowler_AWS(command_args)
         elif "azurecloudsecuritysuite" in parser_class.lower():
             parser_scan_output = Prowler_Azure(command_args)
+        elif "hostvulnerabilityassessment" in parser_class.lower():
+            parser_scan_output = OpenVas(command_args)
         else:
             logging.fatal("No tool specified. Please provide correct arguments.")
             raise Exception("No tool specified. Please provide correct arguments.")
