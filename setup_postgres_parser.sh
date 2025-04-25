@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Set your database credentials here
-DB_HOST="localhost"
-DB_USER="postgres"
-DB_PASSWORD="root"
-DB_NAME="securitytoolparser"
+DB_HOST="${DB_HOST}"
+DB_USER="${DB_USER}"
+DB_PASSWORD="${DB_PASSWORD}"
+DB_NAME="${DB_NAME}"
 DB_PORT=5555
 
 # Step 1: Run PostgreSQL container with Docker

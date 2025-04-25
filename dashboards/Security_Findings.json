@@ -1,0 +1,327 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Security Findings",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 4,
+  "links": [],
+  "panels": [
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 31,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<div style=\"display: flex; align-items: center; height: 100%; font-size: 32px; font-weight: bold; color: #ffffff; background-color: #1f1f1f; padding: 20px; border-radius: 10px;\">\n    <span style=\"flex-grow: 1; text-align: center;\">Security Dashboard</span>\n    <img src=\"https://datafile.accuranet.com/AP.png\" alt=\"Security Logo\" style=\"width: 200px; height: 70px;\">\n</div>\n\n\n\n\n",
+        "mode": "html"
+      },
+      "pluginVersion": "11.5.2",
+      "title": "",
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "eegwnck4qdaf4b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto",
+              "wrapText": false
+            },
+            "filterable": true,
+            "inspect": true
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Tittle"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 323
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Tool"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 208
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Description"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 824
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      },
+      "id": 32,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n    f.toolname AS \"Tool\", \r\n    f.title AS \"Tittle\", \r\n    f.description AS \"Description\", \r\n    f.filepath AS \"Filepath\", \r\n    f.line AS \"Line#\", \r\n    f.remediation AS \"Remediation\", \r\n    f.severity AS \"Severity\" \r\nFROM findings f \r\nJOIN builds b ON f.build_id = b.id \r\nWHERE b.app = '${AppName}' \r\nAND b.build_number = '${ScanName}' \r\nAND f.severity IN (${severity}) \r\nAND (\r\n    '${New:raw}' = '{true,false}' \r\n    OR f.is_new::text = ANY(string_to_array('${New:raw}', ','))\r\n)\r\nAND (\r\n    '${Suppressed:raw}' = '{true,false}' \r\n    OR f.suppressed::text = ANY(string_to_array('${Suppressed:raw}', ','))\r\n)\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          },
+          "table": "builds"
+        }
+      ],
+      "title": "Summary",
+      "type": "table"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "MavenJavaApp",
+          "value": "MavenJavaApp"
+        },
+        "definition": "SELECT DISTINCT app FROM builds",
+        "label": "Application",
+        "name": "AppName",
+        "options": [],
+        "query": "SELECT DISTINCT app FROM builds",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "thecodetrialdemo",
+          "value": "thecodetrialdemo"
+        },
+        "definition": "SELECT DISTINCT module FROM builds where app = '${AppName}'",
+        "label": "Repository",
+        "name": "repo_name",
+        "options": [],
+        "query": "SELECT DISTINCT module FROM builds where app = '${AppName}'",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "CI_main_20250422_1349",
+          "value": "CI_main_20250422_1349"
+        },
+        "definition": "SELECT DISTINCT build_number\nFROM builds \nWHERE app = '${AppName}' \n  AND module = '${repo_name}' ",
+        "includeAll": false,
+        "label": "Scan Name",
+        "name": "ScanName",
+        "options": [],
+        "query": "SELECT DISTINCT build_number\nFROM builds \nWHERE app = '${AppName}' \n  AND module = '${repo_name}' ",
+        "refresh": 1,
+        "regex": "",
+        "sort": 8,
+        "type": "query"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": [
+            "High"
+          ],
+          "value": [
+            "High"
+          ]
+        },
+        "includeAll": false,
+        "label": "Severity",
+        "multi": true,
+        "name": "severity",
+        "options": [
+          {
+            "selected": true,
+            "text": "High",
+            "value": "High"
+          },
+          {
+            "selected": false,
+            "text": "Medium",
+            "value": "Medium"
+          },
+          {
+            "selected": false,
+            "text": "Low",
+            "value": "Low"
+          },
+          {
+            "selected": false,
+            "text": "Info",
+            "value": "Info"
+          }
+        ],
+        "query": "High,Medium,Low,Info",
+        "type": "custom"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "$__all",
+          "value": "$__all"
+        },
+        "includeAll": true,
+        "label": "New?",
+        "name": "New",
+        "options": [
+          {
+            "selected": false,
+            "text": "true",
+            "value": "true"
+          },
+          {
+            "selected": false,
+            "text": "false",
+            "value": "false"
+          }
+        ],
+        "query": "true,false",
+        "type": "custom"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "$__all",
+          "value": "$__all"
+        },
+        "includeAll": true,
+        "label": "Suppressed",
+        "name": "Suppressed",
+        "options": [
+          {
+            "selected": false,
+            "text": "true",
+            "value": "true"
+          },
+          {
+            "selected": false,
+            "text": "false",
+            "value": "false"
+          }
+        ],
+        "query": "true,false",
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "2025-02-19T00:56:46.187Z",
+    "to": "2025-02-19T12:56:46.187Z"
+  },
+  "timepicker": {
+    "hidden": true
+  },
+  "timezone": "browser",
+  "title": "Security Findings",
+  "uid": "bedirapuz30g0b",
+  "version": 14,
+  "weekStart": ""
+}

@@ -1,0 +1,947 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Security Dashboard",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 32,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Report",
+      "tooltip": "",
+      "type": "link",
+      "url": "https://pdfreport.secureline.cloud/api/download-report"
+    }
+  ],
+  "panels": [
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 31,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<div style=\"display: flex; align-items: center; height: 100%; font-size: 32px; font-weight: bold; color: #ffffff; background-color: #1f1f1f; padding: 20px; border-radius: 10px;\">\n    <span style=\"flex-grow: 1; text-align: center;\">Security Posture Dashboard</span>\n    <img src=\"https://datafile.accuranet.com/AP.png\" alt=\"Security Logo\" style=\"width: 200px; height: 70px;\">\n</div>\n\n",
+        "mode": "html"
+      },
+      "pluginVersion": "11.5.2",
+      "title": "",
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource-3",
+        "uid": "eegwnck4qdaf4b"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "links": [],
+          "mappings": [
+            {
+              "options": {
+                "blocker": {
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "High"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#c4162a",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "click here for more details",
+                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=High&var-Toolname=Android%20Security%20Assessment&var-Toolname=Dependency%20Check%20Scan&var-Toolname=SonarQube&var-Toolname=iOS%20Security%20Assessment&var-Toolname=Trufflehog3%20Scan&var-Toolname=ZAP%20Scan&var-New=$New\r\n\r\n\r\n\r\n\r"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Medium"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#e0b400",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "click here for more details",
+                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Medium&var-Toolname=Android%20Security%20Assessment&var-Toolname=Dependency%20Check%20Scan&var-Toolname=SonarQube&var-Toolname=iOS%20Security%20Assessment&var-Toolname=Trufflehog3%20Scan&var-Toolname=ZAP%20Scan&var-New=$New\r"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Low"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#1f60c4",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "click here for more details",
+                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Low&var-Toolname=Android%20Security%20Assessment&var-Toolname=Dependency%20Check%20Scan&var-Toolname=SonarQube&var-Toolname=iOS%20Security%20Assessment&var-Toolname=Trufflehog3%20Scan&var-Toolname=ZAP%20Scan&var-New=$New"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Total"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#d3d3d3",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "click here to see more details",
+                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=$__all&var-Toolname=Android%20Security%20Assessment&var-Toolname=Dependency%20Check%20Scan&var-Toolname=SonarQube&var-Toolname=iOS%20Security%20Assessment&var-Toolname=Trufflehog3%20Scan&var-Toolname=ZAP%20Scan&var-New=$New\r\n\r"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Info"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#f4f6f75e",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "",
+                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Info&var-Toolname=Android%20Security%20Assessment&var-Toolname=Dependency%20Check%20Scan&var-Toolname=SonarQube&var-Toolname=iOS%20Security%20Assessment&var-Toolname=Trufflehog3%20Scan&var-Toolname=ZAP%20Scan&var-New=$New"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      },
+      "id": 18,
+      "options": {
+        "displayMode": "gradient",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource-3",
+            "uid": "eegwnck4qdaf4b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \r\n    severity_levels.severity,\r\n    COALESCE(severity_data.severity_count, 0) AS severity_count\r\nFROM (\r\n    SELECT 'High' AS severity\r\n    UNION ALL SELECT 'Medium'\r\n    UNION ALL SELECT 'Low'\r\n    UNION ALL SELECT 'Info'\r\n    UNION ALL SELECT 'Total'\r\n) AS severity_levels\r\nLEFT JOIN (\r\n    SELECT \r\n        f.severity,\r\n        COUNT(*) AS severity_count\r\n    FROM \r\n        findings f\r\n    JOIN \r\n        builds b ON f.build_id = b.id\r\n    WHERE \r\n        b.app = '${AppName}'\r\n        AND b.build_number IN (\r\n            SELECT build_number FROM (\r\n                (SELECT build_number \r\n                 FROM builds \r\n                 WHERE app = '${AppName}' AND build_number LIKE 'CI_%'\r\n                 ORDER BY build_number DESC LIMIT 1)\r\n                UNION\r\n                (SELECT build_number \r\n                 FROM builds \r\n                 WHERE app = '${AppName}' AND build_number LIKE 'CD_%'\r\n                 ORDER BY build_number DESC LIMIT 1)\r\n            ) AS latest_builds\r\n        )\r\n        AND f.severity IN (${severity})\r\n        AND f.toolname IN (\r\n            'Dependency Check Scan',\r\n            'SonarQube',\r\n            'Android Security Assessment',\r\n            'iOS Security Assessment',\r\n            'Trufflehog3 Scan',\r\n            'ZAP Scan'\r\n        )\r\n        AND b.module = '${repo_name}'\r\n        AND f.is_new IN (${New})\r\n        AND f.suppressed IN (${Suppressed})\r\n    GROUP BY f.severity\r\n\r\n    UNION ALL\r\n\r\n    SELECT \r\n        'Total' AS severity,\r\n        COUNT(*) AS severity_count\r\n    FROM \r\n        findings f\r\n    JOIN \r\n        builds b ON f.build_id = b.id\r\n    WHERE \r\n        b.app = '${AppName}'\r\n        AND b.build_number IN (\r\n            SELECT build_number FROM (\r\n                (SELECT build_number \r\n                 FROM builds \r\n                 WHERE app = '${AppName}' AND build_number LIKE 'CI_%'\r\n                 ORDER BY build_number DESC LIMIT 1)\r\n                UNION\r\n                (SELECT build_number \r\n                 FROM builds \r\n                 WHERE app = '${AppName}' AND build_number LIKE 'CD_%'\r\n                 ORDER BY build_number DESC LIMIT 1)\r\n            ) AS latest_builds\r\n        )\r\n        AND f.severity IN (${severity})\r\n        AND f.toolname IN (\r\n            'Dependency Check Scan',\r\n            'SonarQube',\r\n            'Android Security Assessment',\r\n            'iOS Security Assessment',\r\n            'Trufflehog3 Scan',\r\n            'ZAP Scan'\r\n        )\r\n        AND b.module = '${repo_name}'\r\n        AND f.is_new IN (${New})\r\n        AND f.suppressed IN (${Suppressed})\r\n) AS severity_data ON severity_levels.severity = severity_data.severity\r\nORDER BY \r\n    CASE \r\n        WHEN severity_levels.severity = 'High' THEN 1\r\n        WHEN severity_levels.severity = 'Medium' THEN 2\r\n        WHEN severity_levels.severity = 'Low' THEN 3\r\n        WHEN severity_levels.severity = 'Info' THEN 4\r\n        WHEN severity_levels.severity = 'Total' THEN 5\r\n        ELSE 6\r\n    END;\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Application Security Posture",
+      "transformations": [
+        {
+          "id": "rowsToFields",
+          "options": {
+            "mappings": []
+          }
+        }
+      ],
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "eegwnck4qdaf4b"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "High"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#C4162A",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "click here for more details",
+                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=High&var-Toolname=AWS%20Cloud%20Security%20Audit&var-Toolname=Trivy_MisConfig&var-Toolname=Trivy%20Image%20Scan&var-Toolname=Trivy_CIS&var-Toolname=Kubescape%20Scanning_CI&var-Toolname=Kubescape%20Scanning_CD&var-Toolname=UBUNTU20-CIS-Audit&var-New=$New\r\n"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Low"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "click here for more details",
+                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Low&var-Toolname=AWS%20Cloud%20Security%20Audit&var-Toolname=Trivy_MisConfig&var-Toolname=Trivy%20Image%20Scan&var-Toolname=Trivy_CIS&var-Toolname=Kubescape%20Scanning_CI&var-Toolname=Kubescape%20Scanning_CD&var-Toolname=UBUNTU20-CIS-Audit&var-New=$New\r\n"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Medium"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#E0B400",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "click here for more details",
+                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Medium&var-Toolname=AWS%20Cloud%20Security%20Audit&var-Toolname=Trivy_MisConfig&var-Toolname=Trivy%20Image%20Scan&var-Toolname=Trivy_CIS&var-Toolname=Kubescape%20Scanning_CI&var-Toolname=Kubescape%20Scanning_CD&var-Toolname=UBUNTU20-CIS-Audit&var-New=$New\r\n"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Total"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#d3d3d3",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "",
+                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=$__all&var-Toolname=Trivy_MisConfig&var-Toolname=Trivy%20Image%20Scan&var-Toolname=Trivy_CIS&var-Toolname=Kubescape%20Scanning_CI&var-Toolname=Kubescape%20Scanning_CD&var-Toolname=AWS%20Cloud%20Security%20Audit&var-Toolname=UBUNTU20-CIS-Audit&var-New=$New"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Info"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#f4f6f75e",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "title": "",
+                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Info&var-Toolname=AWS%20Cloud%20Security%20Audit&var-Toolname=Trivy_MisConfig&var-Toolname=Trivy%20Image%20Scan&var-Toolname=Trivy_CIS&var-Toolname=Kubescape%20Scanning_CI&var-Toolname=Kubescape%20Scanning_CD&var-Toolname=UBUNTU20-CIS-Audit&var-New=$New\r\n"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 10
+      },
+      "id": 27,
+      "options": {
+        "displayMode": "gradient",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "valueMode": "color"
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "dee46c876oe80c"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\r\n    severity_levels.severity AS severity,\r\n    COALESCE(findings_data.severity_count, 0) AS severity_count\r\nFROM\r\n    (\r\n        SELECT 'High' AS severity UNION ALL\r\n        SELECT 'Medium' UNION ALL\r\n        SELECT 'Low' UNION ALL\r\n        SELECT 'Info' UNION ALL\r\n        SELECT 'Total'\r\n    ) AS severity_levels\r\nLEFT JOIN\r\n    (\r\n        SELECT\r\n            f.severity AS severity,\r\n            COUNT(*) AS severity_count\r\n        FROM\r\n            findings f\r\n        JOIN\r\n            builds b ON f.build_id = b.id\r\n        WHERE\r\n            b.app = '${AppName}'\r\n            AND b.build_number IN (\r\n                SELECT build_number FROM (\r\n                    (SELECT build_number FROM builds \r\n                     WHERE app = '${AppName}' AND build_number LIKE 'CI_%' \r\n                     ORDER BY build_number DESC LIMIT 1)\r\n                    UNION\r\n                    (SELECT build_number FROM builds \r\n                     WHERE app = '${AppName}' AND build_number LIKE 'CD_%' \r\n                     ORDER BY build_number DESC LIMIT 1)\r\n                ) AS latest_builds\r\n            )\r\n            AND f.severity IN (${severity})\r\n            AND b.module = '${repo_name}'\r\n            AND f.is_new IN (${New})\r\n            AND f.suppressed IN (${Suppressed})\r\n            AND f.toolname IN (\r\n                'Trivy_MisConfig',\r\n                'Trivy Image Scan',\r\n                'Trivy_CIS',\r\n                'Kubescape Scanning_CI',\r\n                'Kubescape Scanning_CD',\r\n                'AWS Cloud Security Audit',\r\n                'UBUNTU20-CIS-Audit'\r\n            )\r\n        GROUP BY\r\n            f.severity\r\n       \r\n        UNION ALL\r\n       \r\n        SELECT\r\n            'Total' AS severity,\r\n            COUNT(*) AS severity_count\r\n        FROM\r\n            findings f\r\n        JOIN\r\n            builds b ON f.build_id = b.id\r\n        WHERE\r\n            b.app = '${AppName}'\r\n            AND b.build_number IN (\r\n                SELECT build_number FROM (\r\n                    (SELECT build_number FROM builds \r\n                     WHERE app = '${AppName}' AND build_number LIKE 'CI_%' \r\n                     ORDER BY build_number DESC LIMIT 1)\r\n                    UNION\r\n                    (SELECT build_number FROM builds \r\n                     WHERE app = '${AppName}' AND build_number LIKE 'CD_%' \r\n                     ORDER BY build_number DESC LIMIT 1)\r\n                ) AS latest_builds\r\n            )\r\n            AND f.severity IN (${severity})\r\n            AND b.module = '${repo_name}'\r\n            AND f.is_new IN (${New})\r\n            AND f.suppressed IN (${Suppressed})\r\n            AND f.toolname IN (\r\n                'Trivy_MisConfig',\r\n                'Trivy Image Scan',\r\n                'Trivy_CIS',\r\n                'Kubescape Scanning_CI',\r\n                'Kubescape Scanning_CD',\r\n                'AWS Cloud Security Audit',\r\n                'UBUNTU20-CIS-Audit'\r\n            )\r\n    ) AS findings_data ON severity_levels.severity = findings_data.severity\r\nORDER BY\r\n    CASE\r\n        WHEN severity_levels.severity = 'High' THEN 1\r\n        WHEN severity_levels.severity = 'Medium' THEN 2\r\n        WHEN severity_levels.severity = 'Low' THEN 3\r\n        WHEN severity_levels.severity = 'Info' THEN 4\r\n        WHEN severity_levels.severity = 'Total' THEN 5\r\n        ELSE 6\r\n    END;\r\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Infrastructure Security Posture",
+      "transformations": [
+        {
+          "id": "rowsToFields",
+          "options": {
+            "mappings": []
+          }
+        }
+      ],
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "eegwnck4qdaf4b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#c4162a",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 10
+              },
+              {
+                "color": "orange",
+                "value": 25
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 11,
+        "x": 0,
+        "y": 16
+      },
+      "id": 32,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "eegwnck4qdaf4b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  COUNT(*) AS value\nFROM findings f\nJOIN builds b ON f.build_id = b.id\nWHERE\n  f.severity = 'High'\n  AND b.app = '${AppName}'\n  AND b.build_number IN (\n    SELECT build_number FROM (\n      (SELECT build_number \n       FROM builds \n       WHERE app = '${AppName}' AND build_number LIKE 'CI_%' \n       ORDER BY build_number DESC LIMIT 1)\n      UNION\n      (SELECT build_number \n       FROM builds \n       WHERE app = '${AppName}' AND build_number LIKE 'CD_%' \n       ORDER BY build_number DESC LIMIT 1)\n    ) AS latest_builds\n  );\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Open High Severity Issues",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "eegwnck4qdaf4b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#e0b400",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 20
+              },
+              {
+                "color": "orange",
+                "value": 50
+              },
+              {
+                "color": "red",
+                "value": 100
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 13,
+        "x": 11,
+        "y": 16
+      },
+      "id": 33,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "eegwnck4qdaf4b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  COUNT(*) AS value\nFROM findings f\nJOIN builds b ON f.build_id = b.id\nWHERE\n  f.severity = 'Medium'\n  AND b.app = '${AppName}'\n  AND b.build_number IN (\n    SELECT build_number FROM (\n      (SELECT build_number \n       FROM builds \n       WHERE app = '${AppName}' AND build_number LIKE 'CI_%' \n       ORDER BY build_number DESC LIMIT 1)\n      UNION\n      (SELECT build_number \n       FROM builds \n       WHERE app = '${AppName}' AND build_number LIKE 'CD_%' \n       ORDER BY build_number DESC LIMIT 1)\n    ) AS latest_builds\n  );\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Open Medium Severity Issues",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "eegwnck4qdaf4b"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic-by-name"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [
+            {
+              "options": {
+                "false": {
+                  "color": "semi-dark-red",
+                  "index": 1,
+                  "text": "Active"
+                },
+                "true": {
+                  "color": "semi-dark-orange",
+                  "index": 0,
+                  "text": "Suppressed"
+                }
+              },
+              "type": "value"
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 16,
+        "x": 0,
+        "y": 22
+      },
+      "id": 34,
+      "options": {
+        "displayLabels": [
+          "name",
+          "value"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true,
+          "values": []
+        },
+        "pieType": "donut",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/^count$/",
+          "values": false
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "eegwnck4qdaf4b"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \n  f.suppressed,\n  COUNT(*) AS count\nFROM findings f\nJOIN builds b ON f.build_id = b.id\nWHERE \n  b.app = '${AppName}'\n  AND b.build_number IN (\n    SELECT build_number FROM (\n      (SELECT build_number \n       FROM builds \n       WHERE app = '${AppName}' AND build_number LIKE 'CI_%' \n       ORDER BY build_number DESC LIMIT 1)\n      UNION\n      (SELECT build_number \n       FROM builds \n       WHERE app = '${AppName}' AND build_number LIKE 'CD_%' \n       ORDER BY build_number DESC LIMIT 1)\n    ) AS latest_builds\n  )\nGROUP BY f.suppressed;\n",
+          "refId": "E",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Total Suppressed Count",
+      "transparent": true,
+      "type": "piechart"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 40,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "text": "WebGoat",
+          "value": "WebGoat"
+        },
+        "definition": "SELECT DISTINCT app FROM builds",
+        "includeAll": false,
+        "label": "Application",
+        "name": "AppName",
+        "options": [],
+        "query": "SELECT DISTINCT app FROM builds",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "thecodetrials",
+          "value": "thecodetrials"
+        },
+        "definition": "SELECT DISTINCT module FROM builds where app = '${AppName}'",
+        "hide": 2,
+        "includeAll": false,
+        "label": "Repository",
+        "name": "repo_name",
+        "options": [],
+        "query": "SELECT DISTINCT module FROM builds where app = '${AppName}'",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
+        },
+        "definition": "SELECT DISTINCT severity AS severity\nFROM findings;\n",
+        "includeAll": true,
+        "label": "Severity",
+        "multi": true,
+        "name": "severity",
+        "options": [],
+        "query": "SELECT DISTINCT severity AS severity\nFROM findings;\n",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "$__all",
+          "value": "$__all"
+        },
+        "includeAll": true,
+        "label": "New",
+        "name": "New",
+        "options": [
+          {
+            "selected": false,
+            "text": "true",
+            "value": "true"
+          },
+          {
+            "selected": false,
+            "text": "false",
+            "value": "false"
+          }
+        ],
+        "query": "true,false",
+        "type": "custom"
+      },
+      {
+        "allowCustomValue": true,
+        "current": {
+          "text": "CD_main_20250415_1241",
+          "value": "CD_main_20250415_1241"
+        },
+        "definition": "(\n  SELECT build_number \n  FROM builds \n  WHERE build_number LIKE 'CD_%' \n    AND app = '${AppName}'\n  ORDER BY build_number DESC \n  LIMIT 1\n)\nUNION\n(\n  SELECT build_number \n  FROM builds \n  WHERE build_number LIKE 'CI_%' \n    AND app = '${AppName}'\n  ORDER BY build_number DESC \n  LIMIT 1\n);\n",
+        "hide": 2,
+        "includeAll": false,
+        "name": "BuildNames",
+        "options": [],
+        "query": "(\n  SELECT build_number \n  FROM builds \n  WHERE build_number LIKE 'CD_%' \n    AND app = '${AppName}'\n  ORDER BY build_number DESC \n  LIMIT 1\n)\nUNION\n(\n  SELECT build_number \n  FROM builds \n  WHERE build_number LIKE 'CI_%' \n    AND app = '${AppName}'\n  ORDER BY build_number DESC \n  LIMIT 1\n);\n",
+        "refresh": 2,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "$__all",
+          "value": "$__all"
+        },
+        "description": "",
+        "includeAll": true,
+        "label": "Suppressed",
+        "name": "Suppressed",
+        "options": [
+          {
+            "selected": false,
+            "text": "true",
+            "value": "true"
+          },
+          {
+            "selected": false,
+            "text": "false",
+            "value": "false"
+          }
+        ],
+        "query": "true,false",
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": true
+  },
+  "timezone": "browser",
+  "title": "Security Posture",
+  "uid": "aecv2rwv70ruop",
+  "version": 78,
+  "weekStart": ""
+}
