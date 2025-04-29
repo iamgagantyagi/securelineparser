@@ -1,11 +1,20 @@
 #!/bin/bash
 
-# Set your database credentials here
-DB_HOST="${DB_HOST}"
-DB_USER="${DB_USER}"
-DB_PASSWORD="${DB_PASSWORD}"
-DB_NAME="${DB_NAME}"
-DB_PORT=5555
+# Set database credentials from environment variables with fallbacks
+DB_HOST="${DB_HOST:-localhost}"  # Use environment variable or fallback to default
+DB_USER="${DB_USER:-postgres}"
+DB_PASSWORD="${DB_PASSWORD:-root}"
+DB_NAME="${DB_NAME:-securitytoolparser}"
+DB_PORT="${DB_PORT:-5555}"
+
+# Print current configuration (for debugging)
+echo "Database Configuration:"
+echo "  Host: $DB_HOST"
+echo "  Port: $DB_PORT"
+echo "  Database: $DB_NAME"
+echo "  User: $DB_USER"
+echo "  Password: [MASKED]"
+
 
 # Step 1: Run PostgreSQL container with Docker
 echo "Starting PostgreSQL container..."

@@ -2,17 +2,25 @@ import pandas as pd
 import psycopg2
 import json
 
+# Database connection details - use environment variables exclusively for database connection
+DB_HOST = os.environ.get("DB_HOST", "localhost")  # Providing fallback defaults
+DB_PORT = os.environ.get("DB_PORT", "5555")
+DB_NAME = os.environ.get("DB_NAME", "securitytoolparser")
+DB_USER = os.environ.get("DB_USER", "postgres") 
+DB_PASSWORD = os.environ.get("DB_PASSWORD", "root")
+TABLE_NAME = 'cis_controls_mappings'
+
 json_input_filepath = "config.json"
 with open(json_input_filepath, 'r') as json_file:
     input_json = json.load(json_file)
 
 # Database connection details
-DB_HOST = input_json.get("pg_conn_params").get("host")
-DB_PORT = input_json.get("pg_conn_params").get("port")
-DB_NAME = input_json.get("pg_conn_params").get("dbname")
-DB_USER = input_json.get("pg_conn_params").get("user")
-DB_PASSWORD = input_json.get("pg_conn_params").get("password")
-TABLE_NAME = 'cis_controls_mappings'
+# DB_HOST = input_json.get("pg_conn_params").get("host")
+# DB_PORT = input_json.get("pg_conn_params").get("port")
+# DB_NAME = input_json.get("pg_conn_params").get("dbname")
+# DB_USER = input_json.get("pg_conn_params").get("user")
+# DB_PASSWORD = input_json.get("pg_conn_params").get("password")
+# TABLE_NAME = 'cis_controls_mappings'
 
 # Path to your Excel file
 EXCEL_FILE = 'CIS_Controls_Mapping_Severity.xlsx'
