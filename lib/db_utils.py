@@ -25,7 +25,7 @@ class PGConnection:
                         'dbname': pg_params.get("dbname"),
                         'user': pg_params.get("user"),
                         'password': pg_params.get("password")
-                }
+                } 
         
         def connect(self):
                 pg_conn = psycopg2.connect(**self.pg_conn_params)

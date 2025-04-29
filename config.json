@@ -12,5 +12,12 @@
   "default_suppression_filename": "default_suppression.csv",
   "quality_gate_folder_path": "lib/quality_gate_json",
   "default_quality_gate_filename": "default_quality_gate.json",
+  "pg_conn_params": {
+    "host": "localhost",
+    "port": 5555,
+    "dbname": "securitytoolparser",
+    "user": "postgres",
+    "password": "root"
+  },
   "sonarqube_edition" : "community"
 }
