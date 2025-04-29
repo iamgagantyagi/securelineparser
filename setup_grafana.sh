@@ -3,8 +3,13 @@
 # Use environment variables (with defaults as fallback)
 GRAFANA_USER="${GRAFANA_USER}"
 GRAFANA_PASSWORD="${GRAFANA_PASSWORD}"
-GRAFANA_PORT=3100
 domain="${domain}"
+GRAFANA_PORT="3100"
+
+echo "GRAFANA_USER: $GRAFANA_USER"
+echo "GRAFANA_PASSWORD: $GRAFANA_PASSWORD"
+echo "domain: $domain"
+echo "GRAFANA_PORT: $GRAFANA_PORT"
 
 # Check if Grafana container is already running
 if docker ps | grep -q grafana-container; then
@@ -110,31 +115,40 @@ DATASOURCES=$(curl -s -X GET \
   "http://${domain}:${GRAFANA_PORT}/api/datasources")
 
 if ! echo "$DATASOURCES" | grep -q "PostgreSQL"; then
-  echo "Adding PostgreSQL data source..."
-  DATASOURCE_RESPONSE=$(curl -s -X POST -H "Content-Type: application/json" \
-    -H "Authorization: Bearer ${GRAFANA_API_KEY}" \
-    -d '{
-      "name": "PostgreSQL",
-      "type": "postgres",
-      "url": "20.163.140.95:5555",
-      "access": "proxy",
-      "user": "postgres",
-      "database": "securitytoolparser",
-      "basicAuth": false,
-      "isDefault": true,
-      "jsonData": {
+    echo "Adding PostgreSQL data source..."
+
+    # Create JSON payload with properly expanded variables
+    JSON_PAYLOAD=$(cat <<EOF
+{
+    "name": "PostgreSQL",
+    "type": "postgres",
+    "url": "${domain}:5555",
+    "access": "proxy",
+    "user": "postgres",
+    "database": "securitytoolparser",
+    "basicAuth": false,
+    "isDefault": true,
+    "jsonData": {
         "sslmode": "disable",
         "postgresVersion": 1200
-      },
-      "secureJsonData": {
+    },
+    "secureJsonData": {
         "password": "postgres"
-      }
-    }' \
-    "http://${domain}:${GRAFANA_PORT}/api/datasources")
+    }
+}
+EOF
+    )
 
-  echo "PostgreSQL data source added to Grafana: $DATASOURCE_RESPONSE"
+    # Send the request with the expanded JSON payload
+    DATASOURCE_RESPONSE=$(curl -s -X POST \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer ${GRAFANA_API_KEY}" \
+        -d "$JSON_PAYLOAD" \
+        "http://${domain}:${GRAFANA_PORT}/api/datasources")
+
+    echo "PostgreSQL data source added to Grafana: $DATASOURCE_RESPONSE"
 else
-  echo "PostgreSQL data source already exists"
+    echo "PostgreSQL data source already exists."
 fi
 
 # Find and import all dashboard JSON files from the repository
