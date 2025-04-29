@@ -158,7 +158,7 @@ for dashboard_file in $(find ${DASHBOARD_PATH} -name "*.json"); do
   fi
 
   # Read the dashboard JSON content
-  DASHBOARD_JSON=$(cat ${dashboard_file})
+  DASHBOARD_JSON=$(cat "${dashboard_file}")
 
   # Check if JSON is valid
   if ! echo "$DASHBOARD_JSON" | jq empty &>/dev/null; then
@@ -190,7 +190,7 @@ for dashboard_file in $(find ${DASHBOARD_PATH} -name "*.json"); do
 
   # Check the response
   if echo "$RESPONSE" | grep -q '"id"'; then
-    DASHBOARD_UID=$(echo $RESPONSE | jq -r '.uid // "unknown"')
+    DASHBOARD_UID=$(echo "$RESPONSE" | jq -r '.uid // "unknown"')
     echo "Dashboard imported successfully with UID: $DASHBOARD_UID"
   else
     echo "Dashboard import failed:"
