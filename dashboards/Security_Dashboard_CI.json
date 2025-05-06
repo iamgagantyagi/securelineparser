@@ -19,7 +19,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 9,
+  "id": 1,
   "links": [
     {
       "asDropdown": false,
@@ -56,14 +56,14 @@
         "content": "<div style=\"display: flex; align-items: center; height: 100%; font-size: 32px; font-weight: bold; color: #ffffff; background-color: #1f1f1f; padding: 20px; border-radius: 10px;\">\n    <span style=\"flex-grow: 1; text-align: center;\">Security Dashboard CI</span>\n    <img src=\"https://datafile.accuranet.com/AP.png\" alt=\"Security Logo\" style=\"width: 200px; height: 70px;\">\n</div>\n\n",
         "mode": "html"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "11.6.1",
       "title": "",
       "type": "text"
     },
     {
       "datasource": {
-        "type": "grafana-postgresql-datasource-3",
-        "uid": "eegwnck4qdaf4b"
+        "type": "grafana-postgresql-datasource",
+        "uid": "${DS_POSTGRESQL}"
       },
       "description": "",
       "fieldConfig": {
@@ -86,8 +86,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -112,7 +111,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/bedirapuz30g0b/security-findings?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=High&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/aekyxvpsphon4a/security-findings?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -137,7 +136,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/bedirapuz30g0b/security-findings?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Medium&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/aekyxvpsphon4a/security-findings?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -162,7 +161,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/bedirapuz30g0b/security-findings?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Low&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/aekyxvpsphon4a/security-findings?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -187,7 +186,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here to see more details",
-                    "url": "https://gd.secureline.cloud/d/bedirapuz30g0b/security-findings?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=sibelhealth&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=$__all&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/aekyxvpsphon4a/security-findings?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -212,7 +211,7 @@
                   {
                     "targetBlank": true,
                     "title": "",
-                    "url": "https://gd.secureline.cloud/d/bedirapuz30g0b/security-findings?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Info&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/aekyxvpsphon4a/security-findings?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -251,12 +250,12 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "11.6.1",
       "targets": [
         {
           "datasource": {
-            "type": "grafana-postgresql-datasource-3",
-            "uid": "eegwnck4qdaf4b"
+            "type": "grafana-postgresql-datasource",
+            "uid": "${DS_POSTGRESQL}"
           },
           "editorMode": "code",
           "format": "table",
@@ -296,7 +295,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "eegwnck4qdaf4b"
+        "uid": "${DS_POSTGRESQL}"
       },
       "description": "",
       "fieldConfig": {
@@ -319,8 +318,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -345,7 +343,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=High&var-Toolname=Dependency%20Check%20Scan&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Dependency%20Check%20Scan&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -370,7 +368,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Low&var-Toolname=Dependency%20Check%20Scan&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Dependency%20Check%20Scan&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -395,7 +393,7 @@
                   {
                     "targetBlank": true,
                     "title": "",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Medium&var-Toolname=Dependency%20Check%20Scan&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Dependency%20Check%20Scan&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -420,7 +418,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=$__all&var-Toolname=Dependency%20Check%20Scan&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Dependency%20Check%20Scan&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -445,7 +443,7 @@
                   {
                     "targetBlank": true,
                     "title": "",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Info&var-Toolname=Dependency%20Check%20Scan&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Dependency%20Check%20Scan&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -484,12 +482,12 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "11.6.1",
       "targets": [
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "cedfyqlr84mpse"
+            "uid": "${DS_POSTGRESQL}"
           },
           "editorMode": "code",
           "format": "table",
@@ -529,7 +527,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "eegwnck4qdaf4b"
+        "uid": "${DS_POSTGRESQL}"
       },
       "description": "",
       "fieldConfig": {
@@ -552,8 +550,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -578,7 +575,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=High&var-Toolname=SonarQube&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=SonarQube&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -603,7 +600,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Low&var-Toolname=SonarQube&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=SonarQube&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -628,7 +625,7 @@
                   {
                     "targetBlank": true,
                     "title": "",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Medium&var-Toolname=SonarQube&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=SonarQube&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -653,7 +650,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=$__all&var-Toolname=SonarQube&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=SonarQube&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -678,7 +675,7 @@
                   {
                     "targetBlank": true,
                     "title": "",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Info&var-Toolname=SonarQube&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=SonarQube&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -717,12 +714,12 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "11.6.1",
       "targets": [
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "cedfyqlr84mpse"
+            "uid": "${DS_POSTGRESQL}"
           },
           "editorMode": "code",
           "format": "table",
@@ -762,7 +759,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "eegwnck4qdaf4b"
+        "uid": "${DS_POSTGRESQL}"
       },
       "description": "",
       "fieldConfig": {
@@ -785,8 +782,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -811,7 +807,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=High&var-Toolname=Trivy_MisConfig&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trivy_MisConfig&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -836,7 +832,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Low&var-Toolname=Trivy_MisConfig&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trivy_MisConfig&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -861,7 +857,7 @@
                   {
                     "targetBlank": true,
                     "title": "",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Medium&var-Toolname=Trivy_MisConfig&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trivy_MisConfig&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -886,7 +882,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=$__all&var-Toolname=Trivy_MisConfig&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trivy_MisConfig&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -911,7 +907,7 @@
                   {
                     "targetBlank": true,
                     "title": "",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Info&var-Toolname=Trivy_MisConfig&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trivy_MisConfig&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -950,12 +946,12 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "11.6.1",
       "targets": [
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "cedfyqlr84mpse"
+            "uid": "${DS_POSTGRESQL}"
           },
           "editorMode": "code",
           "format": "table",
@@ -995,7 +991,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "eegwnck4qdaf4b"
+        "uid": "${DS_POSTGRESQL}"
       },
       "description": "",
       "fieldConfig": {
@@ -1009,8 +1005,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -1035,7 +1030,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=High&var-Toolname=Trufflehog3%20Scan&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trufflehog3%20Scan&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -1060,7 +1055,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Low&var-Toolname=Trufflehog3%20Scan&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trufflehog3%20Scan&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -1085,7 +1080,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Medium&var-Toolname=Trufflehog3%20Scan&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trufflehog3%20Scan&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -1110,7 +1105,7 @@
                   {
                     "targetBlank": true,
                     "title": "",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=$__all&var-Toolname=Trufflehog3%20Scan&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trufflehog3%20Scan&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -1135,7 +1130,7 @@
                   {
                     "targetBlank": true,
                     "title": "",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Info&var-Toolname=Trufflehog3%20Scan&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trufflehog3%20Scan&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -1174,12 +1169,12 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "11.6.1",
       "targets": [
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "dee46c876oe80c"
+            "uid": "${DS_POSTGRESQL}"
           },
           "editorMode": "code",
           "format": "table",
@@ -1219,7 +1214,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "eegwnck4qdaf4b"
+        "uid": "${DS_POSTGRESQL}"
       },
       "description": "",
       "fieldConfig": {
@@ -1267,7 +1262,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=High&var-Toolname=Trivy%20Image%20Scan&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trivy%20Image%20Scan&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -1292,7 +1287,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Low&var-Toolname=Trivy%20Image%20Scan&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trivy%20Image%20Scan&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -1317,7 +1312,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Medium&var-Toolname=Trivy%20Image%20Scan&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trivy%20Image%20Scan&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -1342,7 +1337,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=$__all&var-Toolname=Trivy%20Image%20Scan&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trivy%20Image%20Scan&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -1367,7 +1362,7 @@
                   {
                     "targetBlank": true,
                     "title": "",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Info&var-Toolname=Trivy%20Image%20Scan&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trivy%20Image%20Scan&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -1406,12 +1401,12 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "11.6.1",
       "targets": [
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "cedfyqlr84mpse"
+            "uid": "${DS_POSTGRESQL}"
           },
           "editorMode": "code",
           "format": "table",
@@ -1451,7 +1446,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "eegwnck4qdaf4b"
+        "uid": "${DS_POSTGRESQL}"
       },
       "description": "",
       "fieldConfig": {
@@ -1499,7 +1494,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=High&var-Toolname=Kubescape%20Scanning_CI&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Kubescape%20Scanning_CI&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -1524,7 +1519,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Low&var-Toolname=Kubescape%20Scanning_CI&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Kubescape%20Scanning_CI&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -1549,7 +1544,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Medium&var-Toolname=Kubescape%20Scanning_CI&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Kubescape%20Scanning_CI&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -1574,7 +1569,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=$__all&var-Toolname=Kubescape%20Scanning_CI&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Kubescape%20Scanning_CI&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -1599,7 +1594,7 @@
                   {
                     "targetBlank": true,
                     "title": "",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Info&var-Toolname=Kubescape%20Scanning_CI&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Kubescape%20Scanning_CI&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -1638,12 +1633,12 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "11.6.1",
       "targets": [
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "cedfyqlr84mpse"
+            "uid": "${DS_POSTGRESQL}"
           },
           "editorMode": "code",
           "format": "table",
@@ -1683,7 +1678,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "eegwnck4qdaf4b"
+        "uid": "${DS_POSTGRESQL}"
       },
       "description": "",
       "fieldConfig": {
@@ -1870,12 +1865,12 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "11.6.1",
       "targets": [
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "cedfyqlr84mpse"
+            "uid": "${DS_POSTGRESQL}"
           },
           "editorMode": "code",
           "format": "table",
@@ -1915,7 +1910,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "eegwnck4qdaf4b"
+        "uid": "${DS_POSTGRESQL}"
       },
       "description": "",
       "fieldConfig": {
@@ -2102,12 +2097,12 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "11.6.1",
       "targets": [
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "cedfyqlr84mpse"
+            "uid": "${DS_POSTGRESQL}"
           },
           "editorMode": "code",
           "format": "table",
@@ -2147,7 +2142,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "eegwnck4qdaf4b"
+        "uid": "${DS_POSTGRESQL}"
       },
       "description": "",
       "fieldConfig": {
@@ -2195,7 +2190,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=High&var-Toolname=Trivy_CIS&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trivy_CIS&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -2220,7 +2215,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Low&var-Toolname=Trivy_CIS&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trivy_CIS&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -2245,7 +2240,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Medium&var-Toolname=Trivy_CIS&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trivy_CIS&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -2270,7 +2265,7 @@
                   {
                     "targetBlank": true,
                     "title": "click here for more details",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=$__all&var-Toolname=Trivy_CIS&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trivy_CIS&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -2295,7 +2290,7 @@
                   {
                     "targetBlank": true,
                     "title": "",
-                    "url": "https://gd.secureline.cloud/d/cediza4z3u134f/security-findings-toolwise?orgId=1&from=2025-02-19T00:56:46.187Z&to=2025-02-19T12:56:46.187Z&timezone=browser&var-AppName=$AppName&var-repo_name=$repo_name&var-ScanName=$ScanName&var-severity=Info&var-Toolname=Trivy_CIS&var-New=$New"
+                    "url": "http://135.235.165.163:3100/d/cediza4z3u134f/security-findings-toolwise?orgId=1&var-DS_POSTGRESQL=${DS_POSTGRESQL}&var-AppName=${AppName}&var-repo_name=${repo_name}&var-ScanName=${ScanName}&var-severity=Low&var-Toolname=Trivy_CIS&var-New=${New:raw}&var-Suppressed=${Suppressed:raw}"
                   }
                 ]
               }
@@ -2334,12 +2329,12 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "11.6.1",
       "targets": [
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "cedfyqlr84mpse"
+            "uid": "${DS_POSTGRESQL}"
           },
           "editorMode": "code",
           "format": "table",
@@ -2378,14 +2373,33 @@
     }
   ],
   "preload": false,
-  "schemaVersion": 40,
+  "schemaVersion": 41,
   "tags": [],
   "templating": {
     "list": [
       {
         "current": {
-          "text": "MavenJavaApp",
-          "value": "MavenJavaApp"
+          "text": "grafana-postgresql-datasource",
+          "value": "aekk3sgjpiuiod"
+        },
+        "description": "PostgreSQL Datasource",
+        "includeAll": false,
+        "label": "Data Source",
+        "name": "DS_POSTGRESQL",
+        "options": [],
+        "query": "grafana-postgresql-datasource",
+        "refresh": 1,
+        "regex": "",
+        "type": "datasource"
+      },
+      {
+        "current": {
+          "text": "WebGoat",
+          "value": "WebGoat"
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "${DS_POSTGRESQL}"
         },
         "definition": "SELECT DISTINCT app FROM builds",
         "label": "Application",
@@ -2399,8 +2413,8 @@
       {
         "allowCustomValue": false,
         "current": {
-          "text": "thecodetrialdemo",
-          "value": "thecodetrialdemo"
+          "text": "WebGoat",
+          "value": "WebGoat"
         },
         "definition": "SELECT DISTINCT module FROM builds where app = '${AppName}'",
         "label": "Repository",
@@ -2414,8 +2428,8 @@
       {
         "allowCustomValue": false,
         "current": {
-          "text": "CI_main_20250408_1315",
-          "value": "CI_main_20250408_1315"
+          "text": "CI_main_20250505_320",
+          "value": "CI_main_20250505_320"
         },
         "definition": "SELECT DISTINCT build_number \nFROM builds \nWHERE build_number LIKE 'CI_%'\nAND app = '${AppName}'\nORDER BY build_number DESC \nLIMIT 10;",
         "includeAll": false,
@@ -2505,7 +2519,6 @@
   },
   "timezone": "browser",
   "title": "Security Dashboard CI",
-  "uid": "aecv2rwv70ruof",
-  "version": 118,
-  "weekStart": ""
+  "uid": "bekk3sh505on4e",
+  "version": 4
 }

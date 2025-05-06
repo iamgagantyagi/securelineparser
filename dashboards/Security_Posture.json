@@ -19,7 +19,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 32,
+  "id": 3,
   "links": [
     {
       "asDropdown": false,
@@ -56,14 +56,14 @@
         "content": "<div style=\"display: flex; align-items: center; height: 100%; font-size: 32px; font-weight: bold; color: #ffffff; background-color: #1f1f1f; padding: 20px; border-radius: 10px;\">\n    <span style=\"flex-grow: 1; text-align: center;\">Security Posture Dashboard</span>\n    <img src=\"https://datafile.accuranet.com/AP.png\" alt=\"Security Logo\" style=\"width: 200px; height: 70px;\">\n</div>\n\n",
         "mode": "html"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "11.6.1",
       "title": "",
       "type": "text"
     },
     {
       "datasource": {
-        "type": "grafana-postgresql-datasource-3",
-        "uid": "eegwnck4qdaf4b"
+        "type": "grafana-postgresql-datasource",
+        "uid": "${DS_POSTGRESQL}"
       },
       "description": "",
       "fieldConfig": {
@@ -86,8 +86,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -251,12 +250,12 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "11.6.1",
       "targets": [
         {
           "datasource": {
-            "type": "grafana-postgresql-datasource-3",
-            "uid": "eegwnck4qdaf4b"
+            "type": "grafana-postgresql-datasource",
+            "uid": "${DS_POSTGRESQL}"
           },
           "editorMode": "code",
           "format": "table",
@@ -296,7 +295,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "eegwnck4qdaf4b"
+        "uid": "${DS_POSTGRESQL}"
       },
       "description": "",
       "fieldConfig": {
@@ -310,8 +309,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -474,12 +472,12 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "11.6.1",
       "targets": [
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "dee46c876oe80c"
+            "uid": "${DS_POSTGRESQL}"
           },
           "editorMode": "code",
           "format": "table",
@@ -519,7 +517,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "eegwnck4qdaf4b"
+        "uid": "${DS_POSTGRESQL}"
       },
       "fieldConfig": {
         "defaults": {
@@ -532,8 +530,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "yellow",
@@ -577,12 +574,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "11.6.1",
       "targets": [
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "eegwnck4qdaf4b"
+            "uid": "${DS_POSTGRESQL}"
           },
           "editorMode": "code",
           "format": "table",
@@ -614,7 +611,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "eegwnck4qdaf4b"
+        "uid": "${DS_POSTGRESQL}"
       },
       "fieldConfig": {
         "defaults": {
@@ -627,8 +624,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "yellow",
@@ -672,12 +668,12 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "11.6.1",
       "targets": [
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "eegwnck4qdaf4b"
+            "uid": "${DS_POSTGRESQL}"
           },
           "editorMode": "code",
           "format": "table",
@@ -708,8 +704,8 @@
     },
     {
       "datasource": {
-        "type": "postgres",
-        "uid": "eegwnck4qdaf4b"
+        "type": "grafana-postgresql-datasource",
+        "uid": "${DS_POSTGRESQL}"
       },
       "fieldConfig": {
         "defaults": {
@@ -774,7 +770,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "11.5.2",
+      "pluginVersion": "11.6.1",
       "targets": [
         {
           "datasource": {
@@ -811,10 +807,25 @@
     }
   ],
   "preload": false,
-  "schemaVersion": 40,
+  "schemaVersion": 41,
   "tags": [],
   "templating": {
     "list": [
+      {
+        "current": {
+          "text": "grafana-postgresql-datasource",
+          "value": "aekk3sgjpiuiod"
+        },
+        "description": "PostgreSQL Datasource",
+        "includeAll": false,
+        "label": "Data Source",
+        "name": "DS_POSTGRESQL",
+        "options": [],
+        "query": "grafana-postgresql-datasource",
+        "refresh": 1,
+        "regex": "",
+        "type": "datasource"
+      },
       {
         "current": {
           "text": "WebGoat",
@@ -833,8 +844,12 @@
       {
         "allowCustomValue": false,
         "current": {
-          "text": "thecodetrials",
-          "value": "thecodetrials"
+          "text": "WebGoat",
+          "value": "WebGoat"
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "${DS_POSTGRESQL}"
         },
         "definition": "SELECT DISTINCT module FROM builds where app = '${AppName}'",
         "hide": 2,
@@ -892,8 +907,8 @@
       {
         "allowCustomValue": true,
         "current": {
-          "text": "CD_main_20250415_1241",
-          "value": "CD_main_20250415_1241"
+          "text": "CD_main_20250505_320",
+          "value": "CD_main_20250505_320"
         },
         "definition": "(\n  SELECT build_number \n  FROM builds \n  WHERE build_number LIKE 'CD_%' \n    AND app = '${AppName}'\n  ORDER BY build_number DESC \n  LIMIT 1\n)\nUNION\n(\n  SELECT build_number \n  FROM builds \n  WHERE build_number LIKE 'CI_%' \n    AND app = '${AppName}'\n  ORDER BY build_number DESC \n  LIMIT 1\n);\n",
         "hide": 2,
@@ -941,7 +956,6 @@
   },
   "timezone": "browser",
   "title": "Security Posture",
-  "uid": "aecv2rwv70ruop",
-  "version": 78,
-  "weekStart": ""
+  "uid": "dekk3si14coowc",
+  "version": 3
 }

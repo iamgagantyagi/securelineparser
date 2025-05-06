@@ -15,11 +15,11 @@
       }
     ]
   },
-  "description": "Security Findings",
+  "description": "Security Findings Toolwise",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 5,
+  "id": 6,
   "links": [],
   "panels": [
     {
@@ -40,7 +40,7 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<div style=\"display: flex; align-items: center; height: 100%; font-size: 32px; font-weight: bold; color: #ffffff; background-color: #1f1f1f; padding: 20px; border-radius: 10px;\">\n    <span style=\"flex-grow: 1; text-align: center;\">Security Dashboard</span>\n    <img src=\"https://datafile.accuranet.com/AP.png\" alt=\"Security Logo\" style=\"width: 200px; height: 70px;\">\n</div>\n\n\n\n\n",
+        "content": "<div style=\"display: flex; align-items: center; height: 100%; font-size: 32px; font-weight: bold; color: #ffffff; background-color: #1f1f1f; padding: 20px; border-radius: 10px;\">\n    <span style=\"flex-grow: 1; text-align: center;\">Security Dashboard</span>\n    <img src=\"https://datafile.accuranet.com/AP.png\" alt=\"Security Logo\" style=\"width: 200px; height: 70px;\">\n</div>\n\n\n\n\n\n\n",
         "mode": "html"
       },
       "pluginVersion": "11.6.1",
@@ -64,7 +64,7 @@
               "wrapText": false
             },
             "filterable": true,
-            "inspect": true
+            "inspect": false
           },
           "mappings": [],
           "thresholds": {
@@ -84,24 +84,24 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Tittle"
+              "options": "description"
             },
             "properties": [
               {
                 "id": "custom.width",
-                "value": 323
+                "value": 735
               }
             ]
           },
           {
             "matcher": {
               "id": "byName",
-              "options": "Tool"
+              "options": "toolname"
             },
             "properties": [
               {
                 "id": "custom.width",
-                "value": 208
+                "value": 202
               }
             ]
           },
@@ -113,14 +113,62 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 824
+                "value": 792
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Tittle"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 343
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Remediation"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 248
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Filepath"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 421
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Line#"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 81
               }
             ]
           }
         ]
       },
       "gridPos": {
-        "h": 12,
+        "h": 18,
         "w": 24,
         "x": 0,
         "y": 4
@@ -149,7 +197,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT \r\n    f.toolname AS \"Tool\", \r\n    f.title AS \"Tittle\", \r\n    f.description AS \"Description\", \r\n    f.filepath AS \"Filepath\", \r\n    f.line AS \"Line#\", \r\n    f.remediation AS \"Remediation\", \r\n    f.severity AS \"Severity\" \r\nFROM findings f \r\nJOIN builds b ON f.build_id = b.id \r\nWHERE b.app = '${AppName}' \r\nAND b.build_number = '${ScanName}' \r\nAND f.severity IN (${severity}) \r\nAND (\r\n    '${New:raw}' = '{true,false}' \r\n    OR f.is_new::text = ANY(string_to_array('${New:raw}', ','))\r\n)\r\nAND (\r\n    '${Suppressed:raw}' = '{true,false}' \r\n    OR f.suppressed::text = ANY(string_to_array('${Suppressed:raw}', ','))\r\n)\r\n",
+          "rawSql": "SELECT \r\n    f.toolname AS \"Tool\",\r\n    f.title AS \"Tittle\",\r\n    f.description AS \"Description\",\r\n    f.filepath AS \"Filepath\",\r\n    f.line AS \"Line#\",\r\n    f.remediation AS \"Remediation\",\r\n    f.severity AS \"Severity\"\r\nFROM \r\n    findings f\r\nJOIN \r\n    builds b\r\n    ON f.build_id = b.id\r\nWHERE\r\n    b.app = '${AppName}'\r\n    AND b.build_number = '${ScanName}'\r\n    AND f.toolname = '${Toolname}' \r\n    AND f.severity IN (${severity})\r\n    AND f.is_new IN (${New})  \r\n    AND f.suppressed IN (${Suppressed}) ",
           "refId": "A",
           "sql": {
             "columns": [
@@ -219,10 +267,6 @@
           "text": "WebGoat",
           "value": "WebGoat"
         },
-        "datasource": {
-          "type": "grafana-postgresql-datasource",
-          "uid": "${DS_POSTGRESQL}"
-        },
         "definition": "SELECT DISTINCT module FROM builds where app = '${AppName}'",
         "label": "Repository",
         "name": "repo_name",
@@ -235,41 +279,37 @@
       {
         "allowCustomValue": false,
         "current": {
-          "text": "CI_main_20250505_320",
-          "value": "CI_main_20250505_320"
+          "text": "CD_main_20250501_319",
+          "value": "CD_main_20250501_319"
         },
-        "datasource": {
-          "type": "grafana-postgresql-datasource",
-          "uid": "${DS_POSTGRESQL}"
-        },
-        "definition": "SELECT DISTINCT build_number\nFROM builds \nWHERE app = '${AppName}' \n  AND module = '${repo_name}' ",
+        "definition": "SELECT DISTINCT build_number\nFROM builds \nWHERE app = '${AppName}' \n  AND module = '${repo_name}' \n  \n",
         "includeAll": false,
         "label": "Scan Name",
         "name": "ScanName",
         "options": [],
-        "query": "SELECT DISTINCT build_number\nFROM builds \nWHERE app = '${AppName}' \n  AND module = '${repo_name}' ",
+        "query": "SELECT DISTINCT build_number\nFROM builds \nWHERE app = '${AppName}' \n  AND module = '${repo_name}' \n  \n",
         "refresh": 1,
         "regex": "",
-        "sort": 8,
+        "sort": 4,
         "type": "query"
       },
       {
         "allowCustomValue": false,
         "current": {
           "text": [
-            "High"
+            "Low"
           ],
           "value": [
-            "High"
+            "Low"
           ]
         },
-        "includeAll": false,
+        "includeAll": true,
         "label": "Severity",
         "multi": true,
         "name": "severity",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": "High",
             "value": "High"
           },
@@ -279,7 +319,7 @@
             "value": "Medium"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "Low",
             "value": "Low"
           },
@@ -291,6 +331,22 @@
         ],
         "query": "High,Medium,Low,Info",
         "type": "custom"
+      },
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "UBUNTU20-CIS-Audit",
+          "value": "UBUNTU20-CIS-Audit"
+        },
+        "definition": "SELECT DISTINCT toolname FROM findings",
+        "includeAll": false,
+        "label": "Toolname",
+        "name": "Toolname",
+        "options": [],
+        "query": "SELECT DISTINCT toolname FROM findings",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
       },
       {
         "allowCustomValue": false,
@@ -339,6 +395,24 @@
         ],
         "query": "true,false",
         "type": "custom"
+      },
+      {
+        "current": {
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
+        },
+        "definition": "(\n  SELECT build_number \n  FROM builds \n  WHERE build_number LIKE 'CD_%' \n    AND app = '${AppName}'\n  ORDER BY build_number DESC \n  LIMIT 1\n)\nUNION\n(\n  SELECT build_number \n  FROM builds \n  WHERE build_number LIKE 'CI_%' \n    AND app = '${AppName}'\n  ORDER BY build_number DESC \n  LIMIT 1\n);\n",
+        "includeAll": true,
+        "label": "BuildNames",
+        "multi": true,
+        "name": "BuildNames",
+        "options": [],
+        "query": "(\n  SELECT build_number \n  FROM builds \n  WHERE build_number LIKE 'CD_%' \n    AND app = '${AppName}'\n  ORDER BY build_number DESC \n  LIMIT 1\n)\nUNION\n(\n  SELECT build_number \n  FROM builds \n  WHERE build_number LIKE 'CI_%' \n    AND app = '${AppName}'\n  ORDER BY build_number DESC \n  LIMIT 1\n);\n",
+        "refresh": 1,
+        "regex": "",
+        "type": "query"
       }
     ]
   },
@@ -350,7 +424,7 @@
     "hidden": true
   },
   "timezone": "browser",
-  "title": "Security Findings",
-  "uid": "aekyxvpsphon4a",
-  "version": 1
+  "title": "Security Findings Toolwise",
+  "uid": "cediza4z3u134f",
+  "version": 4
 }
